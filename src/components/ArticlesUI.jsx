@@ -7,7 +7,7 @@ export const ArticlesUI = ({ articles, isLoading, isError, query }) => {
     return (
       <div className="container mx-auto px-4 py-8">
         <div className="space-y-6">
-          {[1, 2, 3, 4, 5].map((index) => (
+          {Array.from({ length: 10 }).map((index) => (
             <ArticleSkeleton key={index} />
           ))}
         </div>
