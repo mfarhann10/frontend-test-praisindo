@@ -4,6 +4,7 @@ import { useGetArticles } from "../hooks/useGetArticles";
 import ArticlesUI from "../components/ArticlesUi";
 
 
+
 function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const [query, setQuery] = useState("");
@@ -18,7 +19,7 @@ function Home() {
 
 
   return (
-        <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
       {/* Search Header */}
       <header className="bg-white shadow-sm border-b">
         <div className="container mx-auto px-4 py-6">
