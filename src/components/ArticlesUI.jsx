@@ -2,8 +2,6 @@ import ArticleCard from "./ArticleCard";
 import ArticleSkeleton from "./ArticleSkeleton";
 import ErrorMessage from "./ErrorMessage";
 
-
-
 function ArticlesUI ({ articles, isLoading, isError, query }){
   if (isLoading) {
     return (
