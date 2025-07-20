@@ -49,7 +49,7 @@ add env
 ## 📦 Installation
 
 ```bash
-git clone https://github.com/your-username/nyt-article-search.git
+git clone https://github.com/mfarhann10/frontend-test-praisindo
 cd praisindo-tech-test
 npm install
 
