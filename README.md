@@ -7,6 +7,42 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+# 📰 New York Times Article Search SPA
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+A simple and responsive Single Page Application (SPA) built with **React** to search and view articles from The New York Times using their [Article Search API](https://developer.nytimes.com/docs/articlesearch-product/1/overview).
+
+---
+
+## 🚀 Features
+
+- 🔍 Search articles using keywords
+- 📅 Filter results by:
+  - Sort order: `newest` or `oldest` or `relevance`
+  - Begin and end date
+- 🔁 Pagination to navigate through results
+- 🧱 Skeleton loading UI
+- ⚠️ Error handling for failed requests
+
+---
+
+## 🛠 Tech Stack
+
+| Category           | Tech Used              |
+|--------------------|------------------------|
+| Framework          | React (JavaScript)     |
+| Data Fetching      | Axios                  |
+| Query Management   | TanStack React Query   |
+| Routing            | React Router           |
+| Forms              | React Hook Form        |
+| Icons              | Lucide React           |
+| Styling            | Tailwind CSS           |
+
+---
+
+## 📦 Installation
+
+```bash
+git clone https://github.com/your-username/nyt-article-search.git
+cd prasindo-tech-test
+npm install
+
