@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useGetArticles } from "../hooks/useGetArticles";
 import ArticlesUi from "../components/ArticlesUi";
-
+import ArticleUi from "../components/ArticleUi";
 
 function Home() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -49,7 +49,7 @@ function Home() {
       </header>
 
       {/* Articles List */}
-      <ArticlesUi
+      <ArticleUi
         articles={articles}
         isLoading={isGetArticles}
         isError={isError}
