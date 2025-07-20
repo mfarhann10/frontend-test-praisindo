@@ -2,13 +2,13 @@ import ArticleCard from "./ArticleCard";
 import ArticleSkeleton from "./ArticleSkeleton";
 import ErrorMessage from "./ErrorMessage";
 
-function ArticlesUi ({ articles, isLoading, isError, query }){
+function ArticlesUi({ articles, isLoading, isError, query, currentPage, onPageChange }) {
   if (isLoading) {
     return (
       <div className="container mx-auto px-4 py-8">
         <div className="space-y-6">
-          {Array.from({ length: 10 }).map((index) => (
-            <ArticleSkeleton key={index} />
+          {Array.from({ length: 10 }).map((_, i) => (
+            <ArticleSkeleton key={i} />
           ))}
         </div>
       </div>
@@ -23,6 +23,7 @@ function ArticlesUi ({ articles, isLoading, isError, query }){
     );
   }
 
+
   if (!articles || articles.length === 0) {
     return (
       <div className="container mx-auto px-4 py-8">
@@ -31,10 +32,9 @@ function ArticlesUi ({ articles, isLoading, isError, query }){
             No articles found
           </div>
           <p className="text-gray-500">
-            {query 
-              ? `No articles found for "${query}". Try searching with different keywords.`
-              : "Enter a search term to find articles."
-            }
+            {query?.q
+              ? `No articles found for "${query.q}". Try searching with different keywords.`
+              : "Enter a search to find articles."}
           </p>
         </div>
       </div>
@@ -43,26 +43,43 @@ function ArticlesUi ({ articles, isLoading, isError, query }){
 
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* Results header */}
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900 mb-2">
-          Search Results
-        </h1>
+        <h1 className="text-2xl font-bold text-gray-900 mb-2">Search Results</h1>
         {query && (
           <p className="text-gray-600">
-            Found {articles.length} articles for "{query}"
+            Found {articles.length} articles for "{query.q || ''}"
           </p>
         )}
       </div>
 
-      {/* Articles grid */}
       <div className="space-y-6">
-        {articles.map((article, index) => (
-          <ArticleCard key={article._id || index} article={article} />
+        {articles.map((article) => (
+          <ArticleCard key={article._id} article={article} />
         ))}
+      </div>
+
+      <p className="text-sm text-gray-500 text-center mt-2">
+        Page {currentPage + 1}
+      </p>
+
+      <div className="flex justify-center gap-4 mt-8">
+        <button
+          className="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded disabled:opacity-50"
+          onClick={() => onPageChange(currentPage - 1)}
+          disabled={currentPage === 0}
+        >
+          Previous
+        </button>
+        <button
+          className="bg-gray-800 text-white hover:bg-gray-700 px-4 py-2 rounded"
+          onClick={() => onPageChange(currentPage + 1)}
+        >
+          Next
+        </button>
       </div>
     </div>
   );
-};
+}
+
 
 export default ArticlesUi;

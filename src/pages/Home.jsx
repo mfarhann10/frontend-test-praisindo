@@ -1,19 +1,24 @@
 // src/pages/Home.jsx
 import { useState } from "react";
-import ArticleUi from "../components/ArticleUi";
+import ArticlesUi from "../components/ArticlesUi";
 import { useGetArticles } from "../hooks/useGetArticles";
+import SearchForm from "../features/SearchForm";
 
 function Home() {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [query, setQuery] = useState("");
-  const { articles, isGetArticles, isError } = useGetArticles(query);
+  const [searchParams, setSearchParams] = useState({
+    q: "",
+    page: 0,
+    sort: "",
+  });
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (searchTerm.trim()) {
-      setQuery(searchTerm.trim());
-    }
+  const handleSearch = (newParams) => {
+    setSearchParams({ ...newParams, page: 0 }); // reset ke page 0 kalau user ganti pencarian
   };
+
+  const handlePageChange = (newPage) => {
+    setSearchParams((prev) => ({ ...prev, page: newPage }));
+  };
+  const { articles, isGetArticles, isError } = useGetArticles(searchParams);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -28,31 +33,19 @@ function Home() {
           </div>
 
           <div className="max-w-2xl mx-auto">
-            <form onSubmit={handleSearch} className="flex gap-2">
-              <input
-                type="text"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Search articles..."
-                className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
-              <button
-                type="submit"
-                className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
-              >
-                Search
-              </button>
-            </form>
+            <SearchForm onSearch={handleSearch} />
           </div>
         </div>
       </header>
 
       {/* Articles List */}
-      <ArticleUi
+      <ArticlesUi
         articles={articles}
         isLoading={isGetArticles}
         isError={isError}
-        query={query}
+        currentPage={searchParams.page}
+        onPageChange={handlePageChange}
+        query={searchParams}
       />
     </div>
   );

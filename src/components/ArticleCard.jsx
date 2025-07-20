@@ -8,34 +8,20 @@ function ArticleCard({ article }) {
     });
   };
 
-  const getImageUrl = (multimedia) => {
-    if (multimedia?.default?.url) {
-      return multimedia.default.url;
-    }
-    return null;
-  };
-
-  const getThumbnailUrl = (multimedia) => {
-    if (multimedia?.thumbnail?.url) {
-      return multimedia.thumbnail.url;
-    }
-    return getImageUrl(multimedia);
-  };
 
   return (
     <article className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
       <div className="flex flex-col md:flex-row">
         {/* Image */}
-        {getImageUrl(article.multimedia) && (
-          <div className="w-full md:w-48 h-48 md:h-auto flex-shrink-0">
-            <img
-              src={getThumbnailUrl(article.multimedia)}
-              alt={article.headline?.main || "Article image"}
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-        )}
+
+        <div className="w-full md:w-48 h-48 md:h-auto flex-shrink-0">
+          <img
+            src={article.multimedia?.default?.url}
+            alt={article.headline?.main || "Article image"}
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
 
         {/* Content */}
         <div className="p-6 flex-1">
@@ -51,13 +37,6 @@ function ArticleCard({ article }) {
               <ExternalLink className="w-4 h-4 flex-shrink-0 mt-1 opacity-60" />
             </a>
           </h2>
-
-          {/* Kicker (if available) */}
-          {article.headline?.kicker && (
-            <div className="text-sm font-medium text-blue-600 mb-2">
-              {article.headline.kicker}
-            </div>
-          )}
 
           {/* Abstract/Snippet */}
           <p className="text-gray-600 mb-4 line-clamp-3">
