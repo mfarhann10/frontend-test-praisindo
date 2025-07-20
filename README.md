@@ -50,7 +50,7 @@ add env
 
 ```bash
 git clone https://github.com/your-username/nyt-article-search.git
-cd prasindo-tech-test
+cd praisindo-tech-test
 npm install
 
 
