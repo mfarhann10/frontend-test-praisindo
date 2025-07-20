@@ -1,8 +1,7 @@
 // src/pages/Home.jsx
 import { useState } from "react";
-import { useGetArticles } from "../hooks/useGetArticles";
-import ArticlesUi from "../components/ArticlesUi";
 import ArticleUi from "../components/ArticleUi";
+import { useGetArticles } from "../hooks/useGetArticles";
 
 function Home() {
   const [searchTerm, setSearchTerm] = useState("");
