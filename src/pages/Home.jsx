@@ -1,9 +1,9 @@
 // src/pages/Home.jsx
 import { useState } from "react";
 
-import { useGetArticles } from "../hooks/useGetArticles";
+import ArticleUi from "../components/ArticleUi";
 import SearchForm from "../features/SearchForm";
-import ArticlesUi from "../components/ArticlesUi";
+import { useGetArticles } from "../hooks/useGetArticles";
 
 function Home() {
   const [searchParams, setSearchParams] = useState({
@@ -40,7 +40,7 @@ function Home() {
       </header>
 
       {/* Articles List */}
-      <ArticlesUi
+      <ArticleUi
         articles={articles}
         isLoading={isGetArticles}
         isError={isError}
