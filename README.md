@@ -39,10 +39,19 @@ A simple and responsive Single Page Application (SPA) built with **React** to se
 
 ---
 
+## For Using My repo
+
+add env
+- VITE_NYT_API_KEY=APIKEY
+
+---
+
 ## 📦 Installation
 
 ```bash
 git clone https://github.com/your-username/nyt-article-search.git
 cd prasindo-tech-test
 npm install
+
+
 
