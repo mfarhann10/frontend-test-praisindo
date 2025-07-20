@@ -1,8 +1,10 @@
-import { ArticleCard } from "./ArticleCard";
-import { ArticleSkeleton } from "./ArticleSkeleton";
-import { ErrorMessage } from "./ErrorMessage";
+import ArticleCard from "./ArticleCard";
+import ArticleSkeleton from "./ArticleSkeleton";
+import ErrorMessage from "./ErrorMessage";
 
-export const ArticlesUI = ({ articles, isLoading, isError, query }) => {
+
+
+function ArticlesUI ({ articles, isLoading, isError, query }){
   if (isLoading) {
     return (
       <div className="container mx-auto px-4 py-8">
@@ -64,3 +66,5 @@ export const ArticlesUI = ({ articles, isLoading, isError, query }) => {
     </div>
   );
 };
+
+export default ArticlesUI;

@@ -1,10 +1,10 @@
 import { Calendar, ExternalLink, User, Tag } from 'lucide-react';
-export const ArticleCard = ({ article }) => {
+function ArticleCard({ article }) {
   const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleDateString('id-ID', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
+    return new Date(dateString).toLocaleDateString("id-ID", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     });
   };
 
@@ -30,24 +30,24 @@ export const ArticleCard = ({ article }) => {
           <div className="w-full md:w-48 h-48 md:h-auto flex-shrink-0">
             <img
               src={getThumbnailUrl(article.multimedia)}
-              alt={article.headline?.main || 'Article image'}
+              alt={article.headline?.main || "Article image"}
               className="w-full h-full object-cover"
               loading="lazy"
             />
           </div>
         )}
-        
+
         {/* Content */}
         <div className="p-6 flex-1">
           {/* Headline */}
           <h2 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 hover:text-blue-600 transition-colors">
-            <a 
-              href={article.web_url} 
-              target="_blank" 
+            <a
+              href={article.web_url}
+              target="_blank"
               rel="noopener noreferrer"
               className="flex items-start gap-2"
             >
-              {article.headline?.main || 'No Title Available'}
+              {article.headline?.main || "No Title Available"}
               <ExternalLink className="w-4 h-4 flex-shrink-0 mt-1 opacity-60" />
             </a>
           </h2>
@@ -61,7 +61,7 @@ export const ArticleCard = ({ article }) => {
 
           {/* Abstract/Snippet */}
           <p className="text-gray-600 mb-4 line-clamp-3">
-            {article.abstract || article.snippet || 'No description available.'}
+            {article.abstract || article.snippet || "No description available."}
           </p>
 
           {/* Metadata */}
@@ -111,4 +111,6 @@ export const ArticleCard = ({ article }) => {
       </div>
     </article>
   );
-};
+}
+
+export default ArticleCard;
