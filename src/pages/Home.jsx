@@ -1,8 +1,9 @@
 // src/pages/Home.jsx
 import { useState } from "react";
-import ArticlesUi from "../components/ArticlesUi";
+
 import { useGetArticles } from "../hooks/useGetArticles";
 import SearchForm from "../features/SearchForm";
+import ArticlesUi from "../components/ArticlesUi";
 
 function Home() {
   const [searchParams, setSearchParams] = useState({
