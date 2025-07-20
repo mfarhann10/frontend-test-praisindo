@@ -1,5 +1,16 @@
-function ArticleUi({ articles, isLoading, isError, query, currentPage, onPageChange }) {
-    if (isLoading) {
+import ArticleCard from "./ArticleCard";
+import ArticleSkeleton from "./ArticleSkeleton";
+import ErrorMessage from "./ErrorMessage";
+
+function ArticleUi({
+  articles,
+  isLoading,
+  isError,
+  query,
+  currentPage,
+  onPageChange,
+}) {
+  if (isLoading) {
     return (
       <div className="container mx-auto px-4 py-8">
         <div className="space-y-6">
@@ -18,7 +29,6 @@ function ArticleUi({ articles, isLoading, isError, query, currentPage, onPageCha
       </div>
     );
   }
-
 
   if (!articles || articles.length === 0) {
     return (
@@ -40,10 +50,12 @@ function ArticleUi({ articles, isLoading, isError, query, currentPage, onPageCha
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900 mb-2">Search Results</h1>
+        <h1 className="text-2xl font-bold text-gray-900 mb-2">
+          Search Results
+        </h1>
         {query && (
           <p className="text-gray-600">
-            Found {articles.length} articles for "{query.q || ''}"
+            Found {articles.length} articles for "{query.q || ""}"
           </p>
         )}
       </div>
@@ -77,4 +89,4 @@ function ArticleUi({ articles, isLoading, isError, query, currentPage, onPageCha
   );
 }
 
-export default ArticleUi
+export default ArticleUi;
