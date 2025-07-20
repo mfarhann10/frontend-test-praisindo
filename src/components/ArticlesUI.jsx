@@ -2,7 +2,7 @@ import ArticleCard from "./ArticleCard";
 import ArticleSkeleton from "./ArticleSkeleton";
 import ErrorMessage from "./ErrorMessage";
 
-function ArticlesUI ({ articles, isLoading, isError, query }){
+function ArticlesUi ({ articles, isLoading, isError, query }){
   if (isLoading) {
     return (
       <div className="container mx-auto px-4 py-8">
@@ -65,4 +65,4 @@ function ArticlesUI ({ articles, isLoading, isError, query }){
   );
 };
 
-export default ArticlesUI;
+export default ArticlesUi;

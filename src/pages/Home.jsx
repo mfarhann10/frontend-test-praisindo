@@ -1,9 +1,7 @@
 // src/pages/Home.jsx
 import { useState } from "react";
 import { useGetArticles } from "../hooks/useGetArticles";
-import ArticlesUI from "../components/ArticlesUi";
-
-
+import ArticlesUi from "../components/ArticlesUi";
 
 function Home() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -16,7 +14,6 @@ function Home() {
       setQuery(searchTerm.trim());
     }
   };
-
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -51,7 +48,7 @@ function Home() {
       </header>
 
       {/* Articles List */}
-      <ArticlesUI
+      <ArticlesUi
         articles={articles}
         isLoading={isGetArticles}
         isError={isError}
