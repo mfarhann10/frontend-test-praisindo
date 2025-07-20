@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useGetArticles } from "../hooks/useGetArticles";
 import ArticlesUi from "../components/ArticlesUi";
 
+
 function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const [query, setQuery] = useState("");
